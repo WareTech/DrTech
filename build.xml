@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+   	<project name="DrTech" default="info">
+   	<target name="info">
+    	<echo>DrTech</echo>
+   	</target>
+   	<target name="build-war">
+   	   <war destfile="releases/DrTech.war" webxml="WebContent/WEB-INF/web.xml">
+   	      <fileset dir="WebContent">
+   	         <include name="**/*.*"/>
+   	      </fileset>
+   	   </war>
+   	</target>   	
+</project>
