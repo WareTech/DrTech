@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/waretech_DrTech</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">password</property>
+		
+		<property name="hibernate.connection.characterEncoding">utf8</property>
+		
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">4</property>
+
+        <!-- SQL dialect Oracle -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+		
+		<!-- Connection Poolling with C3PO -->
+		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="c3p0.idle_test_period">600</property>
+		<property name="c3p0.max_size">10</property> 
+		<property name="c3p0.max_statements">0</property> 
+		<property name="c3p0.min_size">2</property> 
+		<property name="c3p0.timeout">100</property>
+		<property name="c3p0.acquire_increment">1</property>
+		
+        <!-- Echo all executed SQL to stdout -->
+        <property  name="show_sql">true</property>
+
+        <!-- Mapping Entities -->
+        <mapping resource="ar/com/WareTech/DrTech/middleware/entities/Access.hbm.xml"/>
+        <mapping resource="ar/com/WareTech/DrTech/middleware/entities/Configuration.hbm.xml"/>
+        <mapping resource="ar/com/WareTech/DrTech/middleware/entities/User.hbm.xml"/>
+        <mapping resource="ar/com/WareTech/DrTech/middleware/entities/UserAccess.hbm.xml"/>
+        
+    </session-factory>
+
+</hibernate-configuration>
