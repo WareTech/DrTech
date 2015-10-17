@@ -2,7 +2,7 @@
 <project name="DrTech" default="info">
 	<property name="releases.latest.war" value="releases/DrTech.war"/>
 	<property name="test.tomcat.path.home" value="/var/lib/tomcat7"/>
-	<property name="test.tomcat.path.deploy" value="${test.tomcat.path}/webapps"/>
+	<property name="test.tomcat.path.deploy" value="${test.tomcat.path.home}/webapps"/>
    	
    	<target name="info">
     	<echo>DrTech</echo>
