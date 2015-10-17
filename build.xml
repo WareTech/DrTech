@@ -1,13 +1,21 @@
 <?xml version="1.0"?>
-   	<project name="DrTech" default="info">
+<project name="DrTech" default="info">
+	<property name="releases.latest.war" value="releases/DrTech.war"/>
+	<property name="test.tomcat.path.home" value="/var/lib/tomcat7"/>
+	<property name="test.tomcat.path.deploy" value="${test.tomcat.path}/webapps"/>
+   	
    	<target name="info">
     	<echo>DrTech</echo>
    	</target>
    	<target name="build-war">
-   	   <war destfile="releases/DrTech.war" webxml="WebContent/WEB-INF/web.xml">
+   	   <war destfile="${releases.latest.war}" webxml="WebContent/WEB-INF/web.xml">
    	      <fileset dir="WebContent">
    	         <include name="**/*.*"/>
    	      </fileset>
    	   </war>
+   	</target>   	
+   	<target name="deploy-test" depends="build-war">
+   	   <copy file="${releases.latest.war}" tofile="${test.tomcat.path.deploy}/DrTech.war" overwrite="true">
+   	   </copy>
    	</target>   	
 </project>
