@@ -1,0 +1,32 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> WareTech
+> DigitalOcean > Droplet > Ubuntu
+104.236.124.47
+root/dropGELP
+/var/lib/tomcat7/
+/usr/share/tomcat7/bin/shutdown.sh
+sudo service tomcat7 restart
+
+sudo ufw status
+sudo ufw allow 8080/tcp
+
+/home/WareTech/DrTech
+
+put /Users/augusto.soncini/Desktop/DrTech.war
+MySQL > root/mysqGELP
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Responsive
+http://getskeleton.com/
+
+https://www.ibm.com/developerworks/community/blogs/bobleah/entry/code_example_of_responsive_web_design_using_css3_media_queries13?lang=en
+
+  Portrait Tablet
+  @media (min-width: 481px) and (max-width: 768px)
+
+  Landscape smart phone
+  @media (min-width: 321px) and (max-width: 480px)
+
+  Portrait smart phone
+  @media (max-width: 320px)
+  
