@@ -64,21 +64,4 @@ public class Database
 		return Database.database;
 	}
 
-    /**
-     * @param args
-     * @throws Exception
-     */
-    static public void main(
-            String[] args
-            )
-        throws Exception
-    {
-		Database.getCurrentSession().beginTransaction();
-		
-		Database.getCurrentSession().createCriteria(Access.class).list();
-		Database.getCurrentSession().createCriteria(Configuration.class).list();
-		Database.getCurrentSession().createCriteria(User.class).list();
-		Database.getCurrentSession().createCriteria(UserAccess.class).list();
-		
-    }
 }
