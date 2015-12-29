@@ -15,48 +15,10 @@ package ar.com.WareTech.DrTech.middleware.entities;
 public class User
     extends AbstractPersistentObject
 {
-    protected String firstname;
-    protected String lastname;
     protected String username;
     protected String password;
-    protected String email;
-
-    /**
-	 * @return the firstname
-	 */
-	public String getFirstname()
-	{
-		return this.firstname;
-	}
-
-	/**
-	 * @param firtname the firstname to set
-	 */
-	public void setFirstname(
-			String firstname
-			) 
-	{
-		this.firstname = firstname;
-	}
-
-	/**
-	 * @return the lastname
-	 */
-	public String getLastname() 
-	{
-		return this.lastname;
-	}
-
-	/**
-	 * @param lastname the lastname to set
-	 */
-	public void setLastname(
-			String lastname
-			)
-	{
-		this.lastname = lastname;
-	}
-
+    protected Person person;
+    
 	/**
 	 * @return the username
 	 */
@@ -93,22 +55,14 @@ public class User
 		this.password = password;
 	}
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() 
+	public Person getPerson() 
 	{
-		return this.email;
+		return person;
 	}
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(
-			String email
-			) 
+	public void setPerson(Person person) 
 	{
-		this.email = email;
+		this.person = person;
 	}
 
 }

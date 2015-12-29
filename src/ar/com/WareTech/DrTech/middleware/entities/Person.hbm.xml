@@ -10,12 +10,18 @@
 		<property name="dni" type="java.lang.String" length="255" not-null="true" />
 		<property name="firstname" type="java.lang.String" length="255" not-null="true" />
 		<property name="lastname" type="java.lang.String" length="255" not-null="true" />
-		<property name="borthdate" type="java.lang.String" length="255" not-null="true" />
+		<property name="birthdate" type="java.lang.String" length="255" not-null="true" />
 		<property name="gender" type="java.lang.String" length="1" not-null="true" />
 		<property name="medicalcoverage" type="java.lang.String" length="255" not-null="true" />
 		<property name="maritalstate" type="java.lang.String" length="1" not-null="true" />
 		<property name="address" type="java.lang.String" length="255" not-null="true" />
 		<property name="phone" type="java.lang.String" length="255" not-null="true" />
 		<property name="details" type="java.lang.String" length="255" not-null="true" />
+		<set name="userSet" lazy="true" inverse="true" cascade="none" order-by="id">
+			<key>
+            	<column name="person" />
+            </key>
+            <one-to-many class="ar.com.WareTech.DrTech.middleware.entities.User" />
+        </set>
 	</class>
 </hibernate-mapping>

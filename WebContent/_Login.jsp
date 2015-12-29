@@ -1,7 +1,9 @@
 <html>
 	<head>
 	    <title>Login</title>
-		<link rel="stylesheet" type="text/css" href="mobile.css">
+		<link rel="stylesheet" type="text/css" href="css/mobile.css">
+		<link rel="stylesheet" type="text/css" href="css/tablet.css">
+		<link rel="stylesheet" type="text/css" href="css/computer.css">
 	</head>
 	<body>
 		<div class="login">
