@@ -1,10 +1,3 @@
-/*
- * Created on 08/10/2009
- *
- * Augusto (AugustoSoncini@WareTech.com.ar)
- * Company: WareTech TM (www.WareTech.com.ar)
- * Project: GranDT
- */
 package ar.com.WareTech.DrTech.middleware.entities;
 
 import java.io.Serializable;
