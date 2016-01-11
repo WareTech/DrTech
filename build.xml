@@ -12,6 +12,7 @@
    	      <fileset dir="WebContent">
    	         <include name="**/*.*"/>
    	      </fileset>
+   	 	  <classes dir="build/classes"/>
    	   </war>
    	</target>   	
    	<target name="deploy-test" depends="build-war">
