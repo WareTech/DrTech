@@ -5,7 +5,7 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="connection.driver_class">org.gjt.mm.mysql.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost/waretech_DrTech</property>
+        <property name="connection.url">jdbc:mysql://localhost/WareTech_DrTech</property>
         <property name="connection.username">root</property>
         <property name="connection.password">password</property>
 		
