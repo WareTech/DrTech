@@ -5,7 +5,7 @@
     	<servlet-name>StartupServlet</servlet-name>
     	<servlet-class>ar.com.WareTech.DrTech.frontend.web.StartupServlet</servlet-class>
     	<load-on-startup>1</load-on-startup>
-    </servlet> 
+    </servlet>
     <filter>
         <filter-name>TransactionFilter</filter-name>
         <filter-class>ar.com.WareTech.DrTech.frontend.web.TransactionFilter</filter-class>

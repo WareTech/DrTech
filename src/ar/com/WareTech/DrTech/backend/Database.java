@@ -64,4 +64,15 @@ public class Database
 		return Database.database;
 	}
 
+	static public void test() 
+	{
+		System.out.println("Database test...");
+
+		Database.getCurrentSession().createCriteria(Access.class).list();
+		Database.getCurrentSession().createCriteria(Configuration.class).list();
+		Database.getCurrentSession().createCriteria(User.class).list();
+		Database.getCurrentSession().createCriteria(UserAccess.class).list();
+
+		System.out.println(".. done!");
+	}
 }

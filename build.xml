@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <project name="DrTech" default="info">
+	<property name="prod.host" value="104.236.124.47"/>
+	<property name="prod.host.tomcat" value="/home/WareTech/apache-tomcat-7.0.62"/>
+	<property name="prod.username" value="root"/>
+	<property name="prod.password" value="dropGELP"/>
 	<property name="releases.latest.war" value="releases/DrTech.war"/>
 	<property name="test.tomcat.path.home" value="/var/lib/tomcat7"/>
 	<property name="test.tomcat.path.deploy" value="${test.tomcat.path.home}/webapps"/>
@@ -15,8 +19,8 @@
    	 	  <classes dir="build/classes"/>
    	   </war>
    	</target>   	
-   	<target name="deploy-test" depends="build-war">
-   	   <copy file="${releases.latest.war}" tofile="${test.tomcat.path.deploy}/DrTech.war" overwrite="true">
-   	   </copy>
-   	</target>   	
+   	<target name="deploy-prod" depends="build-war">
+   		<scp file="${releases.latest.war}" todir="${prod.username}@${prod.host}:${prod.host.tomcat}/webapps" password="${prod.password}"/>
+   	</target>   
+	
 </project>
