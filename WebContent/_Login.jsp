@@ -11,11 +11,11 @@
 				<div class="title">Login</div>
 				<div class="username-label-row">Usuario</div>		
 				<div class="username-input-row">
-					<input class="username-input" type="text" name="username">
+					<input class="username-input" type="text" name="username" placeholder="Username">
 				</div>		
 				<div class="password-label-row">Clave</div>		
 				<div class="password-input-row">
-					<input class="password-input" type="password" name="password">
+					<input class="password-input" type="password" name="password" placeholder="Password">
 				</div>		
 				<div class="submit-row">
 					<input class="submit-input" type="submit" name="submit" value="Ingresar">
