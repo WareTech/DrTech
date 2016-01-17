@@ -1,5 +1,8 @@
 package ar.com.WareTech.DrTech.middleware.entities;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * @author Augusto (AugustoSoncini@WareTech.com.ar)
  * Company - WareTech TM (www.WareTech.com.ar)
@@ -110,5 +113,20 @@ abstract public class AbstractPersistentObject
     {
         this.version = version;
     }
+
+    /**
+     * 
+     * @return
+     * @throws JSONException
+     */
+	public JSONObject toJSON()
+		throws JSONException
+	{
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("id", this.getId());
+		jsonObject.put("version", this.getVersion());
+		
+		return jsonObject;
+	}
 
 }

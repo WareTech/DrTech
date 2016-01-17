@@ -10,6 +10,9 @@ package ar.com.WareTech.DrTech.middleware.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * @author Augusto (AugustoSoncini@WareTech.com.ar)
  * Company - WareTech TM (www.WareTech.com.ar)
@@ -104,4 +107,25 @@ public class Person
 		this.userSet = userSet;
 	}
 
+	/**
+	 * 
+	 */
+	public JSONObject toJSON()
+		throws JSONException
+	{
+		JSONObject jsonObject = super.toJSON();
+		jsonObject.put("firstname", this.getFirstname());
+		jsonObject.put("lastname", this.getLastname());
+		jsonObject.put("email", this.getEmail());
+		jsonObject.put("dni", this.getDni());
+		jsonObject.put("birthdate", this.getBirthdate());
+		jsonObject.put("gender", this.getGender());
+		jsonObject.put("medicalcoverage", this.getMedicalcoverage());
+		jsonObject.put("maritalstate", this.getMaritalstate());
+		jsonObject.put("address", this.getAddress());
+		jsonObject.put("phone", this.getPhone());
+		jsonObject.put("details", this.getDetails());
+		
+		return jsonObject;
+	}
 }

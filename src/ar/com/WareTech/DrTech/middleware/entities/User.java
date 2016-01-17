@@ -1,5 +1,8 @@
 package ar.com.WareTech.DrTech.middleware.entities;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * @author Augusto (AugustoSoncini@WareTech.com.ar)
  * Company - WareTech TM (www.WareTech.com.ar)
@@ -58,4 +61,14 @@ public class User
 		this.person = person;
 	}
 
+	public JSONObject toJSON()
+			throws JSONException
+		{
+			JSONObject jsonObject = super.toJSON();
+			jsonObject.put("username", this.getUsername());
+			jsonObject.put("password", this.getPassword());
+			jsonObject.put("person", this.getPerson().toJSON());
+			
+			return jsonObject;
+		}
 }

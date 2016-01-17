@@ -1,26 +1,48 @@
-<html>
-	<head>
-	    <title>Login</title>
-		<link rel="stylesheet" type="text/css" href="css/mobile.css">
-		<link rel="stylesheet" type="text/css" href="css/tablet.css">
-		<link rel="stylesheet" type="text/css" href="css/computer.css">
-	</head>
-	<body>
-		<div class="login">
-			<div class="form">
-				<div class="title">Login</div>
-				<div class="username-label-row">Usuario</div>		
-				<div class="username-input-row">
-					<input class="username-input" type="text" name="username" placeholder="Username">
-				</div>		
-				<div class="password-label-row">Clave</div>		
-				<div class="password-input-row">
-					<input class="password-input" type="password" name="password" placeholder="Password">
-				</div>		
-				<div class="submit-row">
-					<input class="submit-input" type="submit" name="submit" value="Ingresar">
-				</div>		
-			</div>
-		</div>
-	</body>
-</html>
+<%@page import="ar.com.WareTech.DrTech.frontend.web.WebUtils"%>
+<%@page import="org.hibernate.criterion.Expression"%>
+<%@page import="ar.com.WareTech.DrTech.backend.Database"%>
+<%@page import="ar.com.WareTech.DrTech.middleware.entities.User"%>
+<%@page import="org.json.JSONArray"%>
+<%@page import="org.json.JSONObject"%>
+<%
+JSONObject _response = new JSONObject();
+_response.put("status", 0);
+
+JSONArray _errors = new JSONArray();
+_response.put("errors", _errors);
+
+String username = request.getParameter("username");
+if (username == null || "".equals(username))
+{
+	_errors.put("'Usuario' es requerido");	
+}
+
+String password = request.getParameter("password");
+if (password == null || "".equals(password))
+{
+	_errors.put("'Clave' es requerido");	
+}
+
+if (_errors.length() == 0)
+{
+	User user = (User) Database.getCurrentSession().createCriteria(
+			User.class
+			)
+			.add(Expression.eq("username", username))
+			.add(Expression.eq("password", (new sun.misc.BASE64Encoder()).encode(password.getBytes())))
+			.uniqueResult();
+	
+	if (user != null)
+	{
+		WebUtils.setUser(session, user);
+		_response.put("user", user);
+		_response.put("status", 1);
+	}
+	else
+	{
+		_errors.put("Login incorrecto");
+	}
+}
+
+out.print(_response.toString());
+%>

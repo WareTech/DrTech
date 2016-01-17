@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
-	<class name="ar.com.WareTech.DrTech.middleware.entities.Person" table="person">
+	<class name="ar.com.WareTech.DrTech.middleware.entities.Person" table="Person">
 		<id name="id" type="java.lang.Long" >
 			<generator class="native" />
 		</id>
@@ -12,11 +12,11 @@
 		<property name="lastname" type="java.lang.String" length="255" not-null="true" />
 		<property name="birthdate" type="java.lang.String" length="255" not-null="true" />
 		<property name="gender" type="java.lang.String" length="1" not-null="true" />
-		<property name="medicalcoverage" type="java.lang.String" length="255" not-null="true" />
-		<property name="maritalstate" type="java.lang.String" length="1" not-null="true" />
-		<property name="address" type="java.lang.String" length="255" not-null="true" />
-		<property name="phone" type="java.lang.String" length="255" not-null="true" />
-		<property name="details" type="java.lang.String" length="255" not-null="true" />
+		<property name="medicalcoverage" type="java.lang.String" length="255" />
+		<property name="maritalstate" type="java.lang.String" length="1" />
+		<property name="address" type="java.lang.String" length="255" />
+		<property name="phone" type="java.lang.String" length="255" />
+		<property name="details" type="java.lang.String" length="255" />
 		<set name="userSet" lazy="true" inverse="true" cascade="none" order-by="id">
 			<key>
             	<column name="person" />
