@@ -35,7 +35,7 @@ if (_errors.length() == 0)
 	if (user != null)
 	{
 		WebUtils.setUser(session, user);
-		_response.put("user", user);
+		_response.put("user", user.toJSON());
 		_response.put("status", 1);
 	}
 	else

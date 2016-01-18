@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import ar.com.WareTech.DrTech.middleware.entities.Access;
+import ar.com.WareTech.DrTech.middleware.entities.Illness;
 import ar.com.WareTech.DrTech.middleware.entities.User;
 import ar.com.WareTech.DrTech.middleware.entities.UserAccess;
 
@@ -70,6 +71,7 @@ public class Database
 
 		Database.getCurrentSession().createCriteria(Access.class).list();
 		Database.getCurrentSession().createCriteria(Configuration.class).list();
+		Database.getCurrentSession().createCriteria(Illness.class).list();
 		Database.getCurrentSession().createCriteria(User.class).list();
 		Database.getCurrentSession().createCriteria(UserAccess.class).list();
 

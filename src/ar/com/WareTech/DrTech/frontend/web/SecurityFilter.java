@@ -23,12 +23,20 @@ import ar.com.WareTech.DrTech.middleware.services.SecurityManager;
 /**
  * @author Augusto (AugustoSoncini@WareTech.com.ar)
  * Company - WareTech TM (www.WareTech.com.ar)
- * Project - Mark SRL
+ * Project - DrTech
  */
 public class SecurityFilter
 	implements javax.servlet.Filter 
 {
 	final static public String REDIRECT_AFTER_LOGIN = "REDIRECT_AFTER_LOGIN";
+	
+	final static public String[] URL_EXCEPTIONS = new String[]{
+		"/Login.jsp",
+		"/Logout.jsp",
+		"/Unathorized.jsp",
+		"/test/",
+		"/service/Authenticate.jsp"
+		};
 	
 	/* (non-Javadoc)
 	 * @see javax.servlet.Filter#destroy()
@@ -53,22 +61,26 @@ public class SecurityFilter
 		HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 		
 		System.out.println("SecurityFilter:" + httpServletRequest.getRequestURL());
+		System.out.println("ServletPath:" + httpServletRequest.getServletPath());
 
-		String url = httpServletRequest.getServletPath().substring(1);
-		if (url.startsWith("_"))
+		String url = httpServletRequest.getServletPath();
+		for(String urlException : URL_EXCEPTIONS) 
 		{
-			filterChain.doFilter(
-					servletRequest, 
-					servletResponse
-					);
-			return;
+			if (url.startsWith(urlException))
+			{
+				filterChain.doFilter(
+						servletRequest, 
+						servletResponse
+						);
+				return;
+			}
 		}
 
-		User user = (User) httpServletRequest.getSession().getAttribute(User.class.getName());
+		User user = WebUtils.getUser(httpServletRequest.getSession());
 		if (user == null)
 		{
 			httpServletRequest.getSession().setAttribute(REDIRECT_AFTER_LOGIN, httpServletRequest.getRequestURL().toString());
-			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/_Login.jsp");
+			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/Login.jsp");
 			return;
 		}
 

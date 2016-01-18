@@ -36,6 +36,7 @@
         <!-- Mapping Entities -->
         <mapping resource="ar/com/WareTech/DrTech/middleware/entities/Access.hbm.xml"/>
         <mapping resource="ar/com/WareTech/DrTech/middleware/entities/Configuration.hbm.xml"/>
+        <mapping resource="ar/com/WareTech/DrTech/middleware/entities/Illness.hbm.xml"/>
         <mapping resource="ar/com/WareTech/DrTech/middleware/entities/Person.hbm.xml"/>
         <mapping resource="ar/com/WareTech/DrTech/middleware/entities/User.hbm.xml"/>
         <mapping resource="ar/com/WareTech/DrTech/middleware/entities/UserAccess.hbm.xml"/>

@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="scripts/login.js"></script>
 	</head>
 	<body>
 	
@@ -37,10 +38,10 @@
    			<div data-role="main" class="ui-content">
 				<form method="post" action="_Login.jsp">
 					<label for="fname">Write your name and click on one of the buttons:</label>
-					<input type="text" name="username" id="username" placeholder="Username">
+					<input type="email" name="username" id="username" placeholder="Username">
 					<input type="password" name="password" id="password" placeholder="Password">
 					<a class="ui-btn ui-corner-all ui-shadow" href="#error-page" data-transition="pop">Error</a>
-					<a class="ui-btn ui-corner-all ui-shadow" href="#error-popup" data-rel="popup" data-transition="slidedown" data-position-to="window">Login</a>
+					<a class="ui-btn ui-corner-all ui-shadow" id="login-button">Login</a>
 				</form>
 			</div>
 
