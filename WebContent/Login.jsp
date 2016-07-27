@@ -22,5 +22,7 @@
 		<div data-role="footer" data-position="fixed">
 			<h1>Login</h1>
 		</div>
+		<div data-role="popup" id="error" data-overlay-theme="b">
+		</div>
 	</body>
 </html>

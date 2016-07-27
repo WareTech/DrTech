@@ -8,6 +8,14 @@ $(document).ready(function() {
     			if (response.status == 1) {
     				document.location = "Home.jsp";
     			}
+    			else {
+    				var message = ""; 
+    				$.each( response.errors, function( key, value ) {
+    					message += "<p>" + value + "</p>";
+    				});
+    				$("#error").html(message);
+    				$("#error").popup("open");
+    			}
 	        });
     });
 });

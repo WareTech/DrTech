@@ -1,3 +1,4 @@
+<%@page import="ar.com.WareTech.DrTech.middleware.services.SecurityManager"%>
 <%@page import="ar.com.WareTech.DrTech.middleware.entities.Person"%>
 <%@page import="ar.com.WareTech.DrTech.frontend.web.WebUtils"%>
 <%@page import="org.hibernate.criterion.Expression"%>
@@ -48,7 +49,7 @@ if (_errors.length() == 0)
 {
 	user = new User();
 	user.setUsername(username);
-	user.setPassword(new sun.misc.BASE64Encoder().encode(password.getBytes()));
+	user.setPassword(SecurityManager.getInstance().encodePassword(username, password));
 	user.setPerson(person);
 	
 	Database.getCurrentSession().save(user);

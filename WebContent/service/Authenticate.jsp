@@ -1,3 +1,4 @@
+<%@page import="ar.com.WareTech.DrTech.middleware.services.SecurityManager"%>
 <%@page import="ar.com.WareTech.DrTech.frontend.web.WebUtils"%>
 <%@page import="org.hibernate.criterion.Expression"%>
 <%@page import="ar.com.WareTech.DrTech.backend.Database"%>
@@ -6,7 +7,7 @@
 <%@page import="org.json.JSONObject"%>
 <%
 JSONObject _response = new JSONObject();
-_response.put("status", 0);
+_response.put("status", -1);
 
 JSONArray _errors = new JSONArray();
 _response.put("errors", _errors);
@@ -29,7 +30,7 @@ if (_errors.length() == 0)
 			User.class
 			)
 			.add(Expression.eq("username", username))
-			.add(Expression.eq("password", (new sun.misc.BASE64Encoder()).encode(password.getBytes())))
+			.add(Expression.eq("password", SecurityManager.getInstance().encodePassword(username, password)))
 			.uniqueResult();
 	
 	if (user != null)
@@ -43,6 +44,6 @@ if (_errors.length() == 0)
 		_errors.put("Login incorrecto");
 	}
 }
-
+System.out.println("Authenticate.jsp > " + _response.toString());
 out.print(_response.toString());
 %>

@@ -13,13 +13,12 @@ import ar.com.WareTech.DrTech.middleware.services.SecurityManager;
  * Company - WareTech TM (www.WareTech.com.ar)
  * Project - DrTech
  */
-public class DatabaseTest
+public class CreateUserTest
 {
-	/**
-	 * 
-	 * @param args
-	 * @throws Exception
-	 */
+    /**
+     * @param args
+     * @throws Exception
+     */
     static public void main(
             String[] args
             )
@@ -27,11 +26,22 @@ public class DatabaseTest
     {
 		Database.getCurrentSession().beginTransaction();
 		
-		Database.getCurrentSession().createCriteria(Access.class).list();
-		Database.getCurrentSession().createCriteria(Configuration.class).list();
-		Database.getCurrentSession().createCriteria(Person.class).list();
-		Database.getCurrentSession().createCriteria(User.class).list();
-		Database.getCurrentSession().createCriteria(UserAccess.class).list();
+		Person person = new Person();
+		person.setEmail("test@drtech.com.ar");
+		person.setDni("9.999.999");
+		person.setFirstname("Test");
+		person.setLastname("Test");
+		person.setBirthdate("01/01/1900");
+		person.setGender("Male");
+		Database.getCurrentSession().save(person);
 		
+		User user = new User();
+		user.setPerson(person);
+		user.setUsername("test@drtech.com.ar");
+		user.setPassword(SecurityManager.getInstance().encodePassword(user.getUsername(), "test"));
+		Database.getCurrentSession().save(user);
+		
+		Database.getCurrentSession().getTransaction().commit();		
     }
+	
 }

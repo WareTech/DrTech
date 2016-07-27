@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.hibernate.criterion.Expression;
 
+import sun.misc.BASE64Encoder;
 import ar.com.WareTech.DrTech.backend.Database;
 import ar.com.WareTech.DrTech.middleware.entities.Access;
 import ar.com.WareTech.DrTech.middleware.entities.User;
@@ -25,12 +26,44 @@ public class SecurityManager
 {
 	static protected SecurityManager securityManager = new SecurityManager();
 	
+	protected BASE64Encoder passwordEncoder = new BASE64Encoder();
+	
 	/**
 	 * @return
 	 */
 	static public SecurityManager getInstance()
 	{
 		return SecurityManager.securityManager;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	protected BASE64Encoder getPasswordEncoder() 
+	{
+		return this.passwordEncoder;
+	}
+	
+	/**
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public String encode(String string) 
+	{
+		return this.getPasswordEncoder().encode(string.getBytes());
+	}
+	
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	public String encodePassword(String username, String password) 
+	{
+		return this.encode(username + password);
 	}
 	
 	/**

@@ -13,9 +13,11 @@ User user = WebUtils.getUser(session);
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	</head>
 	<body>
-		<%@include file="PersonCreatePage1.jsp"%>
-		<%@include file="PersonCreatePage2.jsp"%>
-		<%@include file="PersonCreatePage3.jsp"%>
-		<%@include file="PersonCreatePage4.jsp"%>
+		<form>
+			<%@include file="PersonCreatePage2.jsp"%>
+			<%@include file="PersonCreatePage1.jsp"%>
+			<%@include file="PersonCreatePage3.jsp"%>
+			<%@include file="PersonCreatePage4.jsp"%>
+		</form>
 	</body>
 </html>
