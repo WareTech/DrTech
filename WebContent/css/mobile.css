@@ -46,4 +46,12 @@
 	.options-page .ui-btn {
 		text-align: left;	
 	}
+	
+	#page1 {
+		display: none;
+	}
+
+	#page2 {
+		display: none;
+	}
 }

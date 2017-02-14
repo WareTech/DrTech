@@ -6,17 +6,17 @@
 			<generator class="native" />
 		</id>
 		<version name="version"  type="java.lang.Long"/>
-		<property name="email" type="java.lang.String" length="255" not-null="true" />
-		<property name="dni" type="java.lang.String" length="255" not-null="true" />
 		<property name="firstname" type="java.lang.String" length="255" not-null="true" />
 		<property name="lastname" type="java.lang.String" length="255" not-null="true" />
+		<property name="dni" type="java.lang.String" length="255" not-null="true" />
 		<property name="birthdate" type="java.lang.String" length="255" not-null="true" />
 		<property name="gender" type="java.lang.String" length="1" not-null="true" />
-		<property name="medicalcoverage" type="java.lang.String" length="255" />
-		<property name="maritalstate" type="java.lang.String" length="1" />
+		<property name="activity" type="java.lang.String" length="255" />
+		<property name="medicalCoverage" type="java.lang.String" length="255" />
+		<property name="medicalCoverageNumber" type="java.lang.String" length="255" />
 		<property name="address" type="java.lang.String" length="255" />
 		<property name="phone" type="java.lang.String" length="255" />
-		<property name="details" type="java.lang.String" length="255" />
+		<property name="email" type="java.lang.String" length="255" not-null="true" />
 		<set name="userSet" lazy="true" inverse="true" cascade="none" order-by="id">
 			<key>
             	<column name="person" />

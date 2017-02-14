@@ -10,9 +10,6 @@ package ar.com.WareTech.DrTech.middleware.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * @author Augusto (AugustoSoncini@WareTech.com.ar)
  * Company - WareTech TM (www.WareTech.com.ar)
@@ -27,13 +24,12 @@ public class Person
 	protected String lastname;
 	protected String birthdate;
 	protected String gender;
-	protected String medicalcoverage;
-	protected String maritalstate;
+	protected String activity;
+	protected String medicalCoverage;
+	protected String medicalCoverageNumber;
 	protected String address;
 	protected String phone;
-	protected String details;
     protected Set userSet = new HashSet();
-    
 	public String getEmail() {
 		return email;
 	}
@@ -70,17 +66,23 @@ public class Person
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getMedicalcoverage() {
-		return medicalcoverage;
+	public String getActivity() {
+		return activity;
 	}
-	public void setMedicalcoverage(String medicalcoverage) {
-		this.medicalcoverage = medicalcoverage;
+	public void setActivity(String activity) {
+		this.activity = activity;
 	}
-	public String getMaritalstate() {
-		return maritalstate;
+	public String getMedicalCoverage() {
+		return medicalCoverage;
 	}
-	public void setMaritalstate(String maritalstate) {
-		this.maritalstate = maritalstate;
+	public void setMedicalCoverage(String medicalCoverage) {
+		this.medicalCoverage = medicalCoverage;
+	}
+	public String getMedicalCoverageNumber() {
+		return medicalCoverageNumber;
+	}
+	public void setMedicalCoverageNumber(String medicalCoverageNumber) {
+		this.medicalCoverageNumber = medicalCoverageNumber;
 	}
 	public String getAddress() {
 		return address;
@@ -94,38 +96,11 @@ public class Person
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getDetails() {
-		return details;
-	}
-	public void setDetails(String details) {
-		this.details = details;
-	}
 	public Set getUserSet() {
 		return userSet;
 	}
 	public void setUserSet(Set userSet) {
 		this.userSet = userSet;
 	}
-
-	/**
-	 * 
-	 */
-	public JSONObject toJSON()
-		throws JSONException
-	{
-		JSONObject jsonObject = super.toJSON();
-		jsonObject.put("firstname", this.getFirstname());
-		jsonObject.put("lastname", this.getLastname());
-		jsonObject.put("email", this.getEmail());
-		jsonObject.put("dni", this.getDni());
-		jsonObject.put("birthdate", this.getBirthdate());
-		jsonObject.put("gender", this.getGender());
-		jsonObject.put("medicalcoverage", this.getMedicalcoverage());
-		jsonObject.put("maritalstate", this.getMaritalstate());
-		jsonObject.put("address", this.getAddress());
-		jsonObject.put("phone", this.getPhone());
-		jsonObject.put("details", this.getDetails());
-		
-		return jsonObject;
-	}
+    
 }

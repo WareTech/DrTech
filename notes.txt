@@ -1,5 +1,79 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+username / password = augustosoncini@gmail.com / test
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+					<!-- PAGE 2 -->
+					<div id="PersonCreate2_Form">
+<%
+List<Illness> illnessSickList = Database.getCurrentSession().createCriteria(Illness.class)
+	.add(Expression.eq("type", Enums.ILLNESS_SICK))
+	.list();
+%>
+<%
+for(Illness illness : illnessSickList)
+{
+%>		
+						<span><%= illness.getValue() %></span>
+								<fieldset data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+						       <label for="illness_<%= illness.getId() %>_true" style="width: 150px; text-align: center;">S&iacute;</label>
+							<input type="radio" name="illness_<%= illness.getId() %>" id="illness_<%= illness.getId() %>_true" value="true">
+							<label for="illness_<%= illness.getId() %>_false" style="width: 150px; text-align: center;">No</label>
+							<input type="radio" name="illness_<%= illness.getId() %>" id="illness_<%= illness.getId() %>_false" value="true">	
+						</fieldset>
+<%
+}
+%>
+					</div>
+
+					<!-- PAGE 3 -->
+					<div id="PersonCreate3_Form">
+<%
+List<Illness> illnessHeritageList = Database.getCurrentSession().createCriteria(Illness.class)
+	.add(Expression.eq("type", Enums.ILLNESS_HERITAGE))
+	.list();
+for(Illness illness : illnessHeritageList)
+{
+%>		
+						<span><%= illness.getValue() %></span>
+				  		<fieldset data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+					        <label for="illness_<%= illness.getId() %>_true" style="width: 150px; text-align: center;">S&iacute;</label>
+							<input type="radio" name="illness_<%= illness.getId() %>" id="illness_<%= illness.getId() %>_true" value="true">
+							<label for="illness_<%= illness.getId() %>_false" style="width: 150px; text-align: center;">No</label>
+							<input type="radio" name="illness_<%= illness.getId() %>" id="illness_<%= illness.getId() %>_false" value="true">	
+						</fieldset>
+<%
+}
+%>
+					</div>
+					
+					<!-- PAGE 4 -->
+					<div id="PersonCreate4_Form">
+<%
+List<Illness> illnessOthersList = Database.getCurrentSession().createCriteria(Illness.class)
+	.add(Expression.eq("type", Enums.ILLNESS_OTHERS))
+	.list();
+for(Illness illness : illnessOthersList)
+{
+%>		
+		<span><%= illness.getValue() %></span>
+		<fieldset data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+	        <label for="illness_<%= illness.getId() %>_true" style="width: 150px; text-align: center;">S&iacute;</label>
+			<input type="radio" name="illness_<%= illness.getId() %>" id="illness_<%= illness.getId() %>_true" value="true">
+			<label for="illness_<%= illness.getId() %>_false" style="width: 150px; text-align: center;">No</label>
+			<input type="radio" name="illness_<%= illness.getId() %>" id="illness_<%= illness.getId() %>_false" value="true">	
+		</fieldset>
+<%
+}
+%>
+					</div>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 sudo /usr/local/mysql/support-files/mysql.server start
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
